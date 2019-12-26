@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Entrevoisins</string>
+    <string name="tab_neighbour_title">My neighbours</string>
+    <string name="tab_favorites_title">Favorites</string>
+    <string name="neigbour_user_name">User name</string>
+    <string name="neighbour_info_text">Info text</string>
+    <string name="neighbour_location">Saint pierre du mont à 5km</string>
+    <string name="neighbour_phone_number">+33 6 86 57 90 14</string>
+    <string name="neighbour_external_link">www.facebook.fr/caroline</string>
+    <string name="neighbour_about_text">A propos de moi</string>
+
+</resources>
