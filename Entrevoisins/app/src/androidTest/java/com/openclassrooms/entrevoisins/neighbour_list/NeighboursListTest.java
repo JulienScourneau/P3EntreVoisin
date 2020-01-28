@@ -1,10 +1,9 @@
 
 package com.openclassrooms.entrevoisins.neighbour_list;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.test.espresso.ViewAssertion;
-import android.support.test.espresso.ViewInteraction;
+
 import android.support.test.espresso.contrib.RecyclerViewActions;
+import android.support.test.espresso.intent.Intents;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -14,16 +13,15 @@ import android.view.ViewParent;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
-import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
+import com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourProfilActivity;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.hamcrest.TypeSafeMatcher;
-import org.hamcrest.core.AllOf;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -46,7 +44,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.IsNull.notNullValue;
-
+import static android.support.test.espresso.intent.Intents.intended;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 
 
 /**
@@ -71,6 +70,7 @@ public class NeighboursListTest {
         assertThat(mActivity, notNullValue());
         mApiService= DI.getNewInstanceApiService();
         assertThat(mApiService, notNullValue());
+        Intents.init();
     }
 
     /**
@@ -101,6 +101,8 @@ public class NeighboursListTest {
     public void myNeighboursList_onClickItem_startNeighbourProfil() {
         onView(allOf(ViewMatchers.withId(R.id.list_neighbours),isDisplayed()))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+        intended(hasComponent(NeighbourProfilActivity.class.getName()));
+
     }
 
     @Test

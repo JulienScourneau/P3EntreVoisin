@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

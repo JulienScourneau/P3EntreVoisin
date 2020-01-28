@@ -46,9 +46,7 @@ public class NeighbourServiceTest {
     @Test
     public void getFavoriteNeighboursWithSuccess() {
         List<Neighbour> favoriteNeighbours = service.getFavoriteNeighbours();
-        assertTrue(favoriteNeighbours.isEmpty());
-        favoriteNeighbours.add(service.getNeighbours().get(0));
-        assertEquals(1,favoriteNeighbours.size());
+        assertEquals(favoriteNeighbours,service.getFavoriteNeighbours());
     }
 
     @Test
